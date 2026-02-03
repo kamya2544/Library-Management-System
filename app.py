@@ -5,9 +5,7 @@ st.set_page_config(page_title="Library Management System", layout="centered")
 
 st.title("📚 Library Management System")
 
-# ==============================
 # ADD BOOK
-# ==============================
 
 st.subheader("➕ Add New Book")
 
@@ -22,7 +20,6 @@ category = st.selectbox(
 
 # add_book(title, author, isbn, quantity, category)
 
-
 if st.button("Add Book"):
     if title and author and isbn and category:
         add_book(title, author, isbn, quantity, category)
@@ -32,7 +29,6 @@ if st.button("Add Book"):
         st.error("All fields are required")
 
 st.divider()
-
 
 import csv
 from database import add_books_bulk
@@ -56,16 +52,13 @@ if uploaded_file is not None:
             "category": row["category"].strip()
         })
 
-
     if st.button("Upload Books"):
         add_books_bulk(books)
-        st.success(f"✅ {len(books)} books uploaded successfully!")
+        st.success(f" {len(books)} books uploaded successfully!")
         st.rerun()
 st.divider()
 
-# ==============================
 # VIEW / UPDATE / DELETE BOOKS
-# ==============================
 
 st.subheader("📖 Available Books")
 
@@ -107,3 +100,4 @@ if books:
                 st.rerun()
 else:
     st.info("No books available")
+
