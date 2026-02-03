@@ -3,12 +3,15 @@ from bson.objectid import ObjectId
 
 # MongoDB Connection
 
-MONGO_URI = "mongodb+srv://user:pswd@cluster0.xxxx.mongodb.net/?appName=Cluster0"
+import os
+from pymongo import MongoClient
+
+MONGO_URI = os.getenv("MONGO_URI")
 
 client = MongoClient(MONGO_URI)
-
 db = client["library_db"]
 collection = db["books"]
+
 
 
 # BOOK CRUD OPERATIONS
@@ -45,3 +48,4 @@ def add_books_bulk(books):
 ##collection.delete_many({})
 
 ##print("✅ All books deleted")
+
