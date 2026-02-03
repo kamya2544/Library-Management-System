@@ -3,11 +3,11 @@ from database import add_book, get_all_books, update_book, delete_book
 
 st.set_page_config(page_title="Library Management System", layout="centered")
 
-st.title("📚 Library Management System")
+st.title("LIBRARY MANAGEMENT SYSTEM")
 
 # ADD BOOK
 
-st.subheader("➕ Add New Book")
+st.subheader("Add New Book")
 
 title = st.text_input("Book Title")
 author = st.text_input("Author")
@@ -28,13 +28,11 @@ if st.button("Add Book"):
     else:
         st.error("All fields are required")
 
-st.divider()
-
 import csv
 from database import add_books_bulk
 
 st.divider()
-st.subheader("📤 Upload Books via CSV")
+st.subheader("Upload Books Database via CSV")
 
 uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
 
@@ -60,7 +58,7 @@ st.divider()
 
 # VIEW / UPDATE / DELETE BOOKS
 
-st.subheader("📖 Available Books")
+st.subheader("Available Books")
 
 filter_category = st.selectbox(
     "Filter by Category",
@@ -100,4 +98,5 @@ if books:
                 st.rerun()
 else:
     st.info("No books available")
+
 
